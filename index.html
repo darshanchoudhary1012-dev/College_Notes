@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVault - Student Notes Portal</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Login Modal Popup -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="login-card">
+      <div class="login-header">
+        <i class="fa-solid fa-lock lock-icon"></i>
+        <h2>Student Access Login</h2>
+        <p>Please enter credentials to view notes</p>
+      </div>
+      
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="username" placeholder="Username" required autocomplete="off">
+        </div>
+        
+        <div class="input-group">
+          <i class="fa-solid fa-key"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+        
+        <p class="error-msg" id="errorMsg">Invalid Username or Password!</p>
+
+        <button type="submit" class="btn-login">Login Access</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Website Wrapper (Hidden until logged in) -->
+  <div id="protectedContent" class="protected-content hidden">
+    
+    <!-- Top Bar with Logout -->
+    <nav class="top-nav">
+      <span class="user-badge"><i class="fa-solid fa-user-check"></i> Logged in as <b id="userDisplay">Student</b></span>
+      <button id="logoutBtn" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </nav>
+
+    <!-- Hero Header Section -->
+    <header class="hero">
+      <span class="badge">DARSHAN CHOUDHARY Study Resources</span>
+      <h1>RGPV Academic <span>Notes Portal</span></h1>
+      <p>Access, view, and download curated subject notes.</p>
+      
+      <!-- Search Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search notes by subject or unit...">
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+      
+      <!-- Subject Card: Data Structures -->
+      <section class="subject-card">
+        <div class="card-header">
+          <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+          <div>
+            <h2>Computer Architecture</h2>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 1</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notes/unit1.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notes/unit1.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 2</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notes/Unit2.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notes/Unit2.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 3</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notes/unit3.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notes/Unit3.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 4</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notes/unit4.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notes/Unit4.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 5</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notes/unit5.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notes/Unit5.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- Main Content Container -->
+    <main class="main-container">
+      
+      <!-- Subject Card: Data Structures -->
+      <section class="subject-card">
+        <div class="card-header">
+          <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+          <div>
+            <h2>Data Base Management System</h2>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 1</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notesdb/unit1.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notesdb/unit1.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 2</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notesdb/unit2.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notesdb/unit2.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 3</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notesdb/unit3.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notesdb/unit3.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 4</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notesdb/unit4.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notesdb/unit4.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+        <div class="note-item">
+          <div class="note-info">
+            <i class="fa-regular fa-file-pdf pdf-icon"></i>
+            <div>
+              <h3>Unit 5</h3>
+            </div>
+          </div>
+          <div class="action-btns">
+            <a href="notesdb/unit.pdf" target="_blank" class="btn btn-view">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+            <a href="notesdb/unit.pdf" download class="btn btn-download">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- External JavaScript Link -->
+  <script src="script.js"></script>
+</body>
+</html>
