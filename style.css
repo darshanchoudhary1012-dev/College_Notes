@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --primary: #6366f1;
@@ -23,6 +23,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   min-height: 100vh;
+  overflow-x: hidden; /* Prevents horizontal scrolling on small screens */
 }
 
 .hidden {
@@ -36,18 +37,19 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(32, 87, 214, 0.95);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
 }
 
 .login-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   padding: 2rem;
   border-radius: 16px;
@@ -129,9 +131,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   background: rgba(30, 41, 59, 0.5);
   border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
 }
 
 .user-badge {
@@ -143,11 +146,12 @@ body {
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-main);
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.8rem;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-logout:hover {
@@ -157,7 +161,7 @@ body {
 
 /* Hero Section */
 .hero {
-  padding: 3rem 1.5rem;
+  padding: 3rem 1rem;
   text-align: center;
   background: linear-gradient(180deg, #1e1b4b 0%, var(--bg-color) 100%);
 }
@@ -171,11 +175,13 @@ body {
   font-weight: 600;
   border: 1px solid rgba(165, 180, 252, 0.3);
   display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  margin: 1rem 0 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem); /* Dynamic Font Scaling */
+  margin: 0.5rem 0;
+  line-height: 1.3;
 }
 
 .hero h1 span {
@@ -184,14 +190,16 @@ body {
 
 .hero p {
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
 }
 
 /* Search Box */
 .search-box {
   position: relative;
+  width: 100%;
   max-width: 450px;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
 }
 
 .search-box i {
@@ -213,18 +221,22 @@ body {
   outline: none;
 }
 
-/* Cards & Notes */
+.search-box input:focus {
+  border-color: var(--primary);
+}
+
+/* Main Container & Subject Cards */
 .main-container {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 1rem;
 }
 
 .subject-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
@@ -233,6 +245,10 @@ body {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.card-header h2 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
 }
 
 .icon-box {
@@ -244,8 +260,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
 }
 
+/* Individual Note Rows */
 .note-item {
   display: flex;
   justify-content: space-between;
@@ -255,22 +274,34 @@ body {
   border-radius: 8px;
   border: 1px solid var(--border-color);
   margin-top: 0.8rem;
+  gap: 0.8rem;
 }
 
 .note-info {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  min-width: 0;
+}
+
+.note-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pdf-icon {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #ef4444;
+  flex-shrink: 0;
 }
 
 .action-btns {
   display: flex;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .btn {
@@ -282,7 +313,52 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+  transition: opacity 0.2s ease;
 }
 
-.btn-view { background: #334155; color: #fff; }
-.btn-download { background: var(--primary); color: #fff; }
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-view {
+  background: #334155;
+  color: #fff;
+}
+
+.btn-download {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Mobile Media Queries (Under 600px Screens) */
+@media (max-width: 600px) {
+  .top-nav {
+    padding: 0.8rem 1rem;
+  }
+
+  .login-card {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Note Row adjustments for smaller mobile viewports */
+  .note-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .note-info {
+    width: 100%;
+  }
+
+  .action-btns {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.6rem 0.5rem;
+  }
+}
